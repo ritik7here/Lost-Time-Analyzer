@@ -11,6 +11,11 @@ import { StudentProfile } from './pages/StudentProfile';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastProvider } from './context/ToastContext';
+<<<<<<< HEAD
+=======
+import { NotificationProvider } from './context/NotificationContext';
+import { UploadData } from './pages/UploadData';
+>>>>>>> master
 import './styles/global.css';
 
 const ProtectedRoute = ({ children }) => {
@@ -30,6 +35,10 @@ function AppRoutes() {
         <Route path="compare" element={<Compare />} />
         <Route path="at-risk" element={<AtRisk />} />
         <Route path="leaderboard" element={<Leaderboard />} />
+<<<<<<< HEAD
+=======
+        <Route path="upload" element={<UploadData />} />
+>>>>>>> master
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
@@ -40,11 +49,21 @@ function App() {
   return (
     <ThemeProvider>
       <ToastProvider>
+<<<<<<< HEAD
         <AuthProvider>
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>
         </AuthProvider>
+=======
+        <NotificationProvider>
+          <AuthProvider>
+            <BrowserRouter>
+              <AppRoutes />
+            </BrowserRouter>
+          </AuthProvider>
+        </NotificationProvider>
+>>>>>>> master
       </ToastProvider>
     </ThemeProvider>
   );
