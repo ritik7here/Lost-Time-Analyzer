@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "copy",
-=======
   "name": "lta",
->>>>>>> master
   "private": true,
   "version": "0.0.0",
   "type": "module",
