@@ -14,9 +14,9 @@ export function StudentProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToast } = useToast();
-  
+
   const student = useMemo(() => mockStudents.find(s => s.id === id) || mockStudents[0], [id]);
-  
+
   const [note, setNote] = useState('');
   const [simulatedScore, setSimulatedScore] = useState(student.score);
   const [simulatedAttendance, setSimulatedAttendance] = useState(student.attendance);
@@ -65,7 +65,7 @@ export function StudentProfile() {
 
   return (
     <div style={{ paddingBottom: '40px' }}>
-      <button 
+      <button
         onClick={() => navigate('/students')}
         style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', marginBottom: '24px', fontWeight: 500 }}
       >
@@ -77,9 +77,9 @@ export function StudentProfile() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <Avatar src={student.avatar} size="xl" />
-            <div style={{ flex: 1 }}>
-              <h1 style={{ margin: '0 0 8px 0', fontSize: '2rem', color: 'var(--text-primary)' }}>{student.name}</h1>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <div style={{ flex: 1, textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}>
+              <h1 style={{ margin: '0 0 8px 0', fontSize: '2.5rem', color: 'var(--text-primary)' }}>{student.name}</h1>
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'flex-start' }}>
                 <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>ID: {student.id}</span>
                 <Badge variant="section">Section {student.section}</Badge>
                 <Badge variant={student.risk.toLowerCase()}>{student.risk} Risk</Badge>
@@ -94,10 +94,10 @@ export function StudentProfile() {
       </Card>
 
       <div className="grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '24px' }}>
-        
+
         {/* Core Metrics & Chart */}
         <div style={{ gridColumn: 'span 8', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
             <Card style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
@@ -127,7 +127,7 @@ export function StudentProfile() {
               <Line data={chartData} options={chartOpts} />
             </CardContent>
           </Card>
-          
+
           {/* Achievements Base */}
           <Card>
             <CardHeader>
@@ -151,7 +151,7 @@ export function StudentProfile() {
 
         {/* Sidebar Interactions */}
         <div style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          
+
           {/* What-If Simulator */}
           <Card style={{ border: '1px solid var(--glass-border)', background: 'var(--bg-secondary)' }}>
             <CardHeader>
@@ -159,15 +159,15 @@ export function StudentProfile() {
               <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, marginTop: '4px' }}>Adjust sliders to simulate future standing.</p>
             </CardHeader>
             <CardContent style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem' }}>
                   <label>Hypothetical Attendance</label>
                   <span style={{ fontWeight: 600 }}>{simulatedAttendance}%</span>
                 </div>
-                <input 
-                  type="range" min="0" max="100" 
-                  value={simulatedAttendance} 
+                <input
+                  type="range" min="0" max="100"
+                  value={simulatedAttendance}
                   onChange={(e) => {
                     const att = Number(e.target.value);
                     setSimulatedAttendance(att);
@@ -178,7 +178,7 @@ export function StudentProfile() {
                   style={{ width: '100%', accentColor: 'var(--accent-primary)' }}
                 />
               </div>
-              
+
               <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
                 <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Projected Score</div>
                 <div style={{ fontSize: '1.5rem', fontWeight: 700, color: simulatedScore > student.score ? 'var(--status-success)' : simulatedScore < student.score ? 'var(--status-danger)' : 'var(--text-primary)' }}>
@@ -198,13 +198,13 @@ export function StudentProfile() {
               <CardTitle>Faculty Notes</CardTitle>
             </CardHeader>
             <CardContent style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <textarea 
+              <textarea
                 placeholder="Log an intervention, meeting notes, etc..."
                 value={note}
                 onChange={e => setNote(e.target.value)}
-                style={{ 
-                  flex: 1, minHeight: '120px', resize: 'vertical', width: '100%', 
-                  background: 'var(--bg-primary)', border: '1px solid var(--glass-border)', 
+                style={{
+                  flex: 1, minHeight: '120px', resize: 'vertical', width: '100%',
+                  background: 'var(--bg-primary)', border: '1px solid var(--glass-border)',
                   color: 'var(--text-primary)', padding: '12px', borderRadius: 'var(--border-radius-sm)',
                   fontFamily: 'inherit', fontSize: '0.875rem'
                 }}
