@@ -56,7 +56,7 @@ export function Students() {
       document.body.removeChild(link);
       
       addToast(`Successfully exported ${filteredStudents.length} records.`, 'success');
-    } catch (e) {
+    } catch {
       addToast('Failed to export CSV.', 'error');
     }
   };

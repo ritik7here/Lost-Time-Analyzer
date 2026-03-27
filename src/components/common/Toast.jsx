@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { X, CheckCircle, AlertTriangle, Info } from 'lucide-react';
 
 export function Toast({ message, type, onClose }) {
   const getStyle = () => {
-    switch(type) {
+    switch (type) {
       case 'success': return { bg: 'rgba(16, 185, 129, 0.9)', icon: <CheckCircle size={18} /> };
       case 'error': return { bg: 'rgba(239, 68, 68, 0.9)', icon: <AlertTriangle size={18} /> };
       case 'warning': return { bg: 'rgba(245, 158, 11, 0.9)', icon: <AlertTriangle size={18} /> };
@@ -32,11 +32,11 @@ export function Toast({ message, type, onClose }) {
           to { transform: translateX(0); opacity: 1; }
         }
       `}</style>
-      
+
       <div>{current.icon}</div>
       <div style={{ fontSize: '0.875rem', fontWeight: 500, flex: 1 }}>{message}</div>
-      <button 
-        onClick={onClose} 
+      <button
+        onClick={onClose}
         style={{ background: 'transparent', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', padding: 0 }}
       >
         <X size={16} />

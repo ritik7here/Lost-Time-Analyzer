@@ -1,14 +1,5 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
-import { Menu, Bell, Search, LogOut, Sun, Moon } from 'lucide-react';
-import { Avatar } from '../common/Avatar';
-import { useAuth } from '../../context/AuthContext';
-import { useTheme } from '../../context/ThemeContext';
-import '../../styles/layout.css';
-
-export function Navbar({ onMenuClick }) {
-=======
 import { Menu, Bell, Search, LogOut, Sun, Moon, X, Info } from 'lucide-react';
 import { Avatar } from '../common/Avatar';
 import { useAuth } from '../../context/AuthContext';
@@ -18,15 +9,11 @@ import '../../styles/layout.css';
 
 export function Navbar({ onMenuClick }) {
   const [showNotifications, setShowNotifications] = React.useState(false);
->>>>>>> master
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
-<<<<<<< HEAD
-=======
   const { notifications, unreadCount, markAllAsRead, clearNotifications } = useNotification();
->>>>>>> master
   const pathParts = location.pathname.split('/').filter(Boolean);
 
   // Format breadcrumb text
@@ -39,8 +26,6 @@ export function Navbar({ onMenuClick }) {
     navigate('/login');
   };
 
-<<<<<<< HEAD
-=======
   const handleBellClick = () => {
     setShowNotifications((prev) => !prev);
     if (!showNotifications && unreadCount > 0) {
@@ -48,7 +33,6 @@ export function Navbar({ onMenuClick }) {
     }
   };
 
->>>>>>> master
   return (
     <header className="navbar">
       <div className="flex items-center gap-4" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -77,12 +61,6 @@ export function Navbar({ onMenuClick }) {
           {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </button>
 
-<<<<<<< HEAD
-        <button style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', position: 'relative' }}>
-          <Bell size={20} />
-          <span style={{ position: 'absolute', top: '-1px', right: '1px', width: '8px', height: '8px', background: 'var(--status-danger)', borderRadius: '50%' }}></span>
-        </button>
-=======
         <div style={{ position: 'relative' }}>
           <button
             onClick={handleBellClick}
@@ -138,7 +116,6 @@ export function Navbar({ onMenuClick }) {
             </div>
           )}
         </div>
->>>>>>> master
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', borderLeft: '1px solid var(--glass-border)', paddingLeft: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

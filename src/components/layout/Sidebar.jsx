@@ -1,10 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-<<<<<<< HEAD
-import { LayoutDashboard, Users, UserPlus, FileWarning, Trophy } from 'lucide-react';
-=======
 import { LayoutDashboard, Users, UserPlus, FileWarning, Trophy, UploadCloud } from 'lucide-react';
->>>>>>> master
 import { useAuth } from '../../context/AuthContext';
 import '../../styles/layout.css';
 
@@ -13,10 +9,7 @@ const NAV_ITEMS = [
   { path: '/students', label: 'Students', icon: Users, roles: ['faculty'] },
   { path: '/compare', label: 'Compare', icon: UserPlus, roles: ['faculty'] },
   { path: '/at-risk', label: 'At-Risk', icon: FileWarning, roles: ['faculty'] },
-<<<<<<< HEAD
-=======
   { path: '/upload', label: 'Upload Data', icon: UploadCloud, roles: ['faculty'] },
->>>>>>> master
   { path: '/leaderboard', label: 'Leaderboard', icon: Trophy, roles: ['faculty', 'student'] },
 ];
 

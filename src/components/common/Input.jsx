@@ -1,7 +1,6 @@
 import React from 'react';
-import { cn } from '../../utils/cn';
 
-export function Input({ label, id, className, style, ...props }) {
+export function Input({ label, id, style, ...props }) {
   return (
     <div className="input-wrapper">
       {label && <label htmlFor={id} style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '4px' }}>{label}</label>}
@@ -29,7 +28,7 @@ export function Input({ label, id, className, style, ...props }) {
   );
 }
 
-export function Select({ label, id, options, className, style, ...props }) {
+export function Select({ label, id, options, style, ...props }) {
   return (
     <div className="input-wrapper">
       {label && <label htmlFor={id} style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '4px' }}>{label}</label>}
