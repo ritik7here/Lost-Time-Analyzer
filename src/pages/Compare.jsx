@@ -34,7 +34,7 @@ export function Compare() {
 
   return (
     <div>
-      <div className="page-header">
+      <div className="page-header" style={{ marginBottom: '32px' }}>
         <div>
           <h1 className="page-title">Compare Students</h1>
           <p className="page-subtitle">Select up to 4 students for side-by-side multi-metric comparison.</p>
@@ -43,8 +43,8 @@ export function Compare() {
 
       <div style={{ display: 'flex', gap: 'var(--spacing-lg)', flexDirection: 'column' }}>
         {/* Selection Area */}
-        <Card>
-          <CardContent style={{ padding: 'var(--spacing-md)' }}>
+        <Card style={{ marginTop: 0 }}>
+          <CardContent style={{ padding: '24px var(--spacing-md)' }}>
             <div style={{ position: 'relative', width: '100%', maxWidth: '500px', marginBottom: 'var(--spacing-md)' }}>
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                 <Search size={16} style={{ position: 'absolute', left: '12px', color: 'var(--text-muted)' }} />
@@ -130,39 +130,45 @@ export function Compare() {
                 <CardTitle>Detailed Stats Summary</CardTitle>
               </CardHeader>
               <CardContent>
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>Metric</th>
-                      {selectedStudents.map(s => <th key={s.id}>{s.name}</th>)}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td style={{ fontWeight: 500 }}>Score</td>
-                      {selectedStudents.map(s => <td key={s.id} style={{ color: s.score < 50 ? 'var(--status-danger)' : 'var(--text-primary)' }}>{s.score}%</td>)}
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 500 }}>Attendance</td>
-                      {selectedStudents.map(s => <td key={s.id}>{s.attendance}%</td>)}
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 500 }}>Participation</td>
-                      {selectedStudents.map(s => <td key={s.id}>{s.participation}/100</td>)}
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 500 }}>Class Rank</td>
-                      {selectedStudents.map(s => <td key={s.id}>#{s.rank}</td>)}
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 500 }}>History Avg</td>
-                      {selectedStudents.map(s => {
-                        const avg = Math.round(s.history.reduce((a, b) => a + b, 0) / s.history.length);
-                        return <td key={s.id}>{avg}%</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </table>
+                <div style={{ overflowX: 'auto', width: '100%', paddingBottom: '16px' }}>
+                  <table className="data-table" style={{ width: '100%', minWidth: '600px' }}>
+                    <thead>
+                      <tr>
+                        <th style={{ padding: '24px', textAlign: 'left', fontSize: '1.1rem', color: 'var(--text-primary)' }}>Metric</th>
+                        {selectedStudents.map(s => (
+                          <th key={s.id} style={{ padding: '24px', textAlign: 'center', fontSize: '1.1rem', color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>
+                            {s.name}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style={{ fontWeight: 500, padding: '20px 24px', textAlign: 'left' }}>Score</td>
+                        {selectedStudents.map(s => <td key={s.id} style={{ padding: '20px 24px', textAlign: 'center', fontSize: '1.1rem', fontWeight: 600, color: s.score < 50 ? 'var(--status-danger)' : 'var(--text-primary)' }}>{s.score}%</td>)}
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: 500, padding: '20px 24px', textAlign: 'left' }}>Attendance</td>
+                        {selectedStudents.map(s => <td key={s.id} style={{ padding: '20px 24px', textAlign: 'center', fontSize: '1.1rem', fontWeight: 600 }}>{s.attendance}%</td>)}
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: 500, padding: '20px 24px', textAlign: 'left' }}>Participation</td>
+                        {selectedStudents.map(s => <td key={s.id} style={{ padding: '20px 24px', textAlign: 'center', fontSize: '1.1rem', fontWeight: 600 }}>{s.participation}/100</td>)}
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: 500, padding: '20px 24px', textAlign: 'left' }}>Class Rank</td>
+                        {selectedStudents.map(s => <td key={s.id} style={{ padding: '20px 24px', textAlign: 'center', fontSize: '1.1rem', fontWeight: 600, color: 'var(--accent-primary)' }}>#{s.rank}</td>)}
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: 500, padding: '20px 24px', textAlign: 'left' }}>History Avg</td>
+                        {selectedStudents.map(s => {
+                          const avg = Math.round(s.history.reduce((a, b) => a + b, 0) / s.history.length);
+                          return <td key={s.id} style={{ padding: '20px 24px', textAlign: 'center', fontSize: '1.1rem', fontWeight: 600 }}>{avg}%</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </CardContent>
             </Card>
           </div>
