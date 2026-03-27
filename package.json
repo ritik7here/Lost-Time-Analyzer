@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "lta",
   "private": true,
@@ -32,7 +31,6 @@
     "vite": "^8.0.1"
   }
 }
-=======
 {
   "name": "lta",
   "private": true,
@@ -66,4 +64,3 @@
     "vite": "^8.0.3"
   }
 }
->>>>>>> 859d6f0 (updated files)
